@@ -36,5 +36,5 @@ jobs:
             - run: npx semantic-release-plus --debug
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                  DOCKER_USERNAME: joa-mos
                   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
