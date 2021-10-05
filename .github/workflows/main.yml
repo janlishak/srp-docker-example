@@ -14,22 +14,16 @@ on:
             - synchronize
 
 jobs:
-    build:
+    build_release:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - name: Build
+              uses: actions/checkout@v2
               with:
                   fetch-depth: 0
-            - name: Build the docker image
-              run: docker build --tag ghcr.io/joa-mos/srp-docker-example .
-    release:
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0
-            - uses: actions/setup-node@v2
+            - run: docker build --tag ghcr.io/joa-mos/srp-docker-example .
+            - name: Release
+              uses: actions/setup-node@v2
               with:
                   cache: npm
             - run: npm ci

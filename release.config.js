@@ -7,6 +7,9 @@ module.exports = {
 			{
 				name: "ghcr.io/joa-mos/srp-docker-example",
 				registryUrl: "ghcr.io",
+				publishLatestTag: true,
+				publishMajorTag: true,
+				publishMinorTag: true,
 				// publishChannelTag: true,
 			},
 		],
