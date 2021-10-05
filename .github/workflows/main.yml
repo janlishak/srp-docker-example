@@ -1,0 +1,40 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - master
+            - next
+            - beta
+            - alpha
+            - "*.x"
+    pull_request:
+        types:
+            - opened
+            - synchronize
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - name: Build the docker image
+              run: docker build --tag ghcr.io/joa-mos/srp-docker-example .
+    release:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - uses: actions/setup-node@v2
+              with:
+                  cache: npm
+            - run: npm ci
+            - run: npx semantic-release-plus --debug
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                  DOCKER_PASSWORD: $:{{ secrets.DOCKER_PASSWORD }}
