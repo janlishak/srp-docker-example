@@ -13,7 +13,7 @@
 		"url": "https://github.com/JoA-MoS/srp-docker-example.git"
 	},
 	"devDependencies": {
-		"@semantic-release-plus/docker": "^3.0.0-alpha.5",
+		"@semantic-release-plus/docker": "^3.0.0-alpha.7",
 		"semantic-release-plus": "^18.4.3"
 	}
 }
