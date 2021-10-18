@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN echo TESTING 1
