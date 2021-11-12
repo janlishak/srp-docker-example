@@ -22,6 +22,9 @@ jobs:
               with:
                   fetch-depth: 0
             - run: docker build --tag joa-mos/srp-docker-example .
+            - name: Login to docker registries
+              run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u joa-mos --password-stdin
+              run: echo ${{ secrets.DOCKERIO_PASSWORD }} | docker login -u joamos --password-stdin
             - name: Release
               uses: actions/setup-node@v2
               with:
@@ -30,5 +33,3 @@ jobs:
             - run: npx semantic-release-plus --debug
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  DOCKER_USERNAME: joa-mos
-                  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

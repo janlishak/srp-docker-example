@@ -5,8 +5,18 @@ module.exports = {
 		[
 			"@semantic-release-plus/docker",
 			{
-				name: "joa-mos/srp-docker-example",
-				registry: "ghcr.io",
+				name: "ghcr.io/joa-mos/srp-docker-example",
+				skipLogin: true,
+			},
+		],
+		[
+			"@semantic-release-plus/docker",
+			{
+				name: {
+					namespace: "joamos",
+					repository: "srp-docker-example",
+				},
+				skipLogin: true,
 			},
 		],
 		"@semantic-release/github",
