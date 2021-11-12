@@ -6,3 +6,4 @@ RUN echo TESTING 2
 RUN echo TESTING 3
 RUN echo TESTING 4
 RUN echo TESTING new plugin with old format
+RUN echo TESTING posting to multiple registries
