@@ -31,7 +31,7 @@ jobs:
               uses: actions/setup-node@v2
               with:
                   cache: npm
-            - run: npm ci
+            - run: npm ci --ignore-scripts
             - run: npx semantic-release-plus --debug
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
