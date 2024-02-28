@@ -28,7 +28,7 @@ jobs:
                   fetch-depth: 0
             - run: docker build --tag janlishak/srp-docker-example .
             - name: Login to ghcr.io docker registry
-              run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u janlishak --password-stdin
+              run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u janlishak --password-stdin
             - name: Release
               uses: actions/setup-node@v2
               with:
