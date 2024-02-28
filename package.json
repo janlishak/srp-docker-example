@@ -10,7 +10,7 @@
 	"license": "ISC",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/JoA-MoS/srp-docker-example.git"
+		"url": "https://github.com/janlishak/srp-docker-example.git"
 	},
 	"devDependencies": {
 		"@semantic-release-plus/docker": "^3.1.2",

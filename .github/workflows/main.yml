@@ -1,17 +1,22 @@
 name: CI
 
 on:
-    push:
-        branches:
-            - master
-            - next
-            - beta
-            - alpha
-            - "*.x"
-    pull_request:
-        types:
-            - opened
-            - synchronize
+  workflow_dispatch:
+    # push:
+    #     branches:
+    #         - master
+    #         - next
+    #         - beta
+    #         - alpha
+    #         - "*.x"
+    # pull_request:
+    #     types:
+    #         - opened
+    #         - synchronize
+permissions:
+      contents: write
+      issues: write
+      pull-requests: write
 
 jobs:
     build_release:
@@ -21,12 +26,9 @@ jobs:
               uses: actions/checkout@v2
               with:
                   fetch-depth: 0
-            - run: docker build --tag joa-mos/srp-docker-example .
-            - run: docker tag joa-mos/srp-docker-example joamos/srp-docker-example
+            - run: docker build --tag janlishak/srp-docker-example .
             - name: Login to ghcr.io docker registry
-              run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u joa-mos --password-stdin
-            - name: Login to docker.io docker registry
-              run: echo ${{ secrets.DOCKERIO_PASSWORD }} | docker login -u joamos --password-stdin
+              run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u janlishak --password-stdin
             - name: Release
               uses: actions/setup-node@v2
               with:
