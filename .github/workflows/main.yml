@@ -17,6 +17,8 @@ permissions:
       contents: write
       issues: write
       pull-requests: write
+      packages: write
+      id-token: write
 
 jobs:
     build_release:
@@ -28,7 +30,7 @@ jobs:
                   fetch-depth: 0
             - run: docker build --tag janlishak/srp-docker-example .
             - name: Login to ghcr.io docker registry
-              run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u janlishak --password-stdin
+              run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             - name: Release
               uses: actions/setup-node@v2
               with:
