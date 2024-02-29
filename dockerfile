@@ -1,3 +1,4 @@
+LABEL org.opencontainers.image.source=https://github.com/janlishak/srp-docker-example
 FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 
