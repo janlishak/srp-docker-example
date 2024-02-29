@@ -8,7 +8,8 @@ module.exports = {
 				name: {
 					registry: "ghcr.io",
 					namespace: "janlishak",
-					repository: "srp-docker-example"
+					repository: "srp-docker-example",
+					tag: "latest"
 				},
 				skipLogin: true,
 			},
