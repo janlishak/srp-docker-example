@@ -1,5 +1,5 @@
-LABEL org.opencontainers.image.source=https://github.com/janlishak/srp-docker-example
 FROM nginx:latest
+LABEL org.opencontainers.image.source=https://github.com/janlishak/srp-docker-example
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN echo TESTING 1
