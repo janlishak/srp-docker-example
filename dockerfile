@@ -7,3 +7,4 @@ RUN echo TESTING 4
 RUN echo TESTING new plugin with old format
 RUN echo TESTING posting to multiple registries
 RUN echo this is new version, yes
+COPY localfile.txt /containerpath/file.txt
